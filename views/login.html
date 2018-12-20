@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ./partials/head %>
+  <script src="/scripts/login.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Entrar</h5>
+            <form class="form-signin" method="post">
+              <div class="form-label-group">
+                <label for="user">Usuário</label>
+                <input type="user" id="user" name="user" class="form-control" placeholder="Login" required autofocus>
+              </div>
+
+              <div class="form-label-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Senha" required>
+              </div>
+
+              </br>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="submit" formaction="/">Entrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

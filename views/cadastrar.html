@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="item">
+
+<head>
+  <% include ./partials/head %>
+  <script src="/scripts/cadastrar.js"></script>
+  <title>Cadastrar Item</title>
+</head>
+
+<body ng-controller="itemCtrl">
+  <header>
+    <% include ./partials/header %>
+  </header>
+  </br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-9 col-lg-7 mx-auto">
+        <div class="card">
+          <h5 class="card-header">Cadastrar Item</h5>
+          <div class="card-body">
+            <form class="form">
+
+              <div class="form-label-group">
+                <label for="codbarra">Código de barras</label>
+                <input type="text" id="codbarra" ng-blur="validaCodbar()" name="codbarra" class="form-control" ng-model="codbar" placeholder="Código de barras"
+                  required autofocus>
+              </div>
+
+              <div class="form-label-group">
+                <label for="user">Item</label>
+                <input type="text" id="nome" name="nome" class="form-control" ng-model="item" placeholder="Nome do item"
+                  required>
+              </div>
+
+              <div class="form-label-group">
+                <label for="user">Observação</label>
+                <textarea id="obs" name="obs" class="form-control" ng-model="obs" placeholder="Observação">
+                </textarea>
+              </div>
+
+              <div class="form-label-group">
+                <label for="idLocalidade">Local</label>
+                <select id="idLocalidade" class="form-control" ng-model="idlocalidade" ng-options="lcl.local for lcl in localidade | orderBy : 'local'"
+                  required>
+                  <option value="">Selecione o local</option>
+                </select>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase col-md" type="submit" id="salvar" ng-click="postData()">Salvar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

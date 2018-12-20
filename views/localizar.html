@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="item">
+
+<head>
+    <% include ./partials/head %>
+    <script src="/scripts/localizar.js"></script>
+    <title>Localizar Item</title>
+</head>
+
+<body ng-controller="itemCtrl">
+    <header>
+        <% include ./partials/header %>
+    </header>
+    </br>
+    <div class="container-fluid">
+        <h3 class="card-title text-center">Localizar Item</h3>
+        <form class="form-group">
+            <div class="form-group col-md">
+                    <label class="control-label" for="codbarra">Cód.de barras:</label>
+                    <input type="text" id="codbarra" name="codbarra" class="form-control col-md-5" ng-model="codbar"
+                        placeholder="Código de barras" required autofocus>
+                    <label class="control-label" for="nome">Item:</label>
+                    <input type="text" id="nome" name="nome" class="form-control col-md-7" ng-model="item" placeholder="Nome do Item">
+            </div>
+            <div class="form-group col-md">
+                <form name='select-localidade'>
+                    <label class="control-label" for="idLocalidade">Local:</label>
+                    <select id="idLocalidade" class="form-control col-md-5" ng-model="idlocalidade" ng-options="lcl.local for lcl in localidade">
+                        <option value="">Selecione o local</option>
+                    </select>
+                </form>
+            </div>
+            </br>
+            <div class="form-inline">
+                <div class="btn-input col-5 col-sm-4 col-md-1 col-lg-1">
+                    <button class="btn btn-md btn-primary text-uppercase" type="submit" id="pesquisar" ng-click="postData()">Pesquisar</button>
+                </div>
+                <div class="btn-input col-4 col-sm-3 col-md-1 col-lg-1">
+                    <button class="btn btn-md btn-primary text-uppercase" type="submit" id="excel" ng-click="excel()">Excel</button>
+                </div>
+            </div>
+        </form>
+        </br>
+    </div>
+
+    <div class="col-md">
+        <h4>Rastreio do item</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Item</th>
+                        <th>Local atual</th>
+                        <th>Encontra-se</th>
+                        <th>Observação</th>
+                        <th>Usuário</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="rast in rastreio">
+                    <td>{{rast.cd_rastreio}}</td>
+                    <td>{{rast.nm_nome}}</td>
+                    <td>{{rast.ds_localidade_atual}}</td>
+                    <td>{{rast.ds_situacao}}</td>
+                    <td>{{rast.ds_obs}}</td>
+                    <td>{{rast.usuario}}</td>
+                    <td>{{rast.dt_rastreio}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>

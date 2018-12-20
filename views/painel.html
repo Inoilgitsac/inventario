@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="Item">
+
+<head>
+  <% include ./partials/head %>
+  <script src="/scripts/painel.js"></script>
+  <title>Painel de Items</title>
+</head>
+
+<body ng-controller="ItemCtrl">
+  <header>
+     <% include ./partials/header %>
+ </header>
+</br>
+</br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Painel</h5>
+            <form class="form" method="get">
+              <div class="form-label-group">
+                <input type="hidden" class="custom-control-input" id="isAdmin" ng-model="isAdmin">
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="registrarChegada()">Registrar
+                  Chegada</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="enviarItem()">Enviar
+                  Item</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="localizarItem()">Localizar
+                  Item</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="cadastrarItem()">Cadastrar
+                  Item</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="editarItem()">Editar
+                  Item</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="apagarItem()">Apagar
+                  Item</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="criarUsuario()"
+                  ng-model="criarUsuario" ng-show="isAdmin">Criar Usuário</button>
+                <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit" ng-click="deslogar()">Deslogar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

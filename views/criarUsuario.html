@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="user">
+
+<head>
+    <% include ./partials/head %>
+    <title>Criar Usuário</title>
+</head>
+
+<body ng-controller="userCtrl">
+    <header>
+        <% include ./partials/header %>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Criar usuário</h5>
+                        <form class="form">
+
+
+                            <div class="form-label-group">
+                                <label for="nome">Nome do usuário</label>
+                                <input type="text" id="nome" name="nome" class="form-control" ng-model="nome"
+                                    placeholder="Nome" required autofocus>
+                            </div>
+
+                            <div class="form-label-group">
+                                <label for="login">Login</label>
+                                <input type="text" id="login" name="login" class="form-control" ng-model="login"
+                                    placeholder="Login" required>
+                            </div>
+
+                            <div class="form-label-group">
+                                <label for="senha">Senha</label>
+                                <input type="password" id="senha" name="senha" class="form-control" ng-model="senha"
+                                    placeholder="Senha" required>
+                            </div>
+
+                            <div class="form-label-group">
+                                <label for="senha">Confirme a senha</label>
+                                <input type="password" id="confSenha" name="confSenha" class="form-control" ng-model="confSenha"
+                                    placeholder="Senha" required>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="isAdmin" ng-model="isAdmin">
+                                <label class="custom-control-label" for="isAdmin">É administrador?</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <form name='select-localidade'>
+                                    <label for="idLocalidade">Local</label>
+                                    <select id="idLocalidade" class="form-control" ng-model="idlocalidade" ng-options="lcl.local for lcl in localidade | orderBy : 'local'"
+                                        required>
+                                        <option value="">Selecione o local</option>
+                                    </select>
+                                </form>
+                            </div>
+                            <button class="btn btn-lg btn-primary text-uppercase col-md" type="submit" id="salvar"  ng-click="postData()">Salvar</button>
+                            <script src="/scripts/criarUsuario.js"></script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
